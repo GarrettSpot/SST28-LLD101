@@ -4,7 +4,7 @@ import java.util.Map;
 public class Parser {
     Parser() {}
 
-    public Map<String, String> parseRawInput(String raw) {
+    public Map<String, String> parseRawInputToMap(String raw) {
         System.out.println("INPUT: " + raw);
 
         Map<String,String> kv = new LinkedHashMap<>();

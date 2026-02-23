@@ -14,7 +14,7 @@ public class OnboardingService {
     }
 
     public void registerFromRawInput(String raw) {
-        Map<String, String> kv = parser.parseRawInput(raw);
+        Map<String, String> kv = parser.parseRawInputToMap(raw);
 
         if (!validator.validate(kv)) {
             return;
@@ -25,14 +25,9 @@ public class OnboardingService {
     }
 
     private StudentRecord studentFromMap(Map<String, String> kv) {
-        String name = kv.getOrDefault("name", "");
-        String email = kv.getOrDefault("email", "");
-        String phone = kv.getOrDefault("phone", "");
-        String program = kv.getOrDefault("program", "");
-        
         String id = IdUtil.nextStudentId(db.count());
-        StudentRecord rec = new StudentRecord(id, name, email, phone, program);
-
+        kv.put("id", id);
+        StudentRecord rec = new StudentRecord(kv);
         return rec;
     }
 

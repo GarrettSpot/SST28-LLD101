@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class StudentRecord {
     public final String id;
     public final String name;
@@ -7,6 +9,14 @@ public class StudentRecord {
 
     public StudentRecord(String id, String name, String email, String phone, String program) {
         this.id = id; this.name = name; this.email = email; this.phone = phone; this.program = program;
+    }
+
+    public StudentRecord(Map<String, String> kv) {
+        name = kv.getOrDefault("name", "");
+        email = kv.getOrDefault("email", "");
+        phone = kv.getOrDefault("phone", "");
+        program = kv.getOrDefault("program", "");
+        id = kv.getOrDefault("id", "");
     }
 
     @Override
