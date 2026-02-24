@@ -4,6 +4,11 @@ public class FileStore {
     private final Map<String, String> files = new HashMap<>();
 
     public void save(String name, String content) { files.put(name, content); }
+
+    public void save(Invoice inv) {
+        save(inv.getInvId(), inv.getInvoiceString());
+    }
+
     public int countLines(String name) {
         String c = files.getOrDefault(name, "");
         if (c.isEmpty()) return 0;

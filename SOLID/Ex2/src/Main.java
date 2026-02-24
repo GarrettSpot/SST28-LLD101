@@ -2,6 +2,11 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        TaxRules.addTaxRule("student", 5.0);
+        TaxRules.addTaxRule("staff", 2.0);
+        DiscountRules.addDiscount("student", 10.0);
+        DiscountRules.addDiscount("staff", 15.0);
+
         System.out.println("=== Cafeteria Billing ===");
 
         CafeteriaSystem sys = new CafeteriaSystem();
